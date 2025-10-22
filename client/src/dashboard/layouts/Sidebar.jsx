@@ -3,8 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AiFillDashboard, AiOutlinePlus } from 'react-icons/ai'
 import { ImProfile } from 'react-icons/im'
 import { BiNews } from 'react-icons/bi'
-// import { FiUsers } from 'react-icons/fi'
-// import { FaPlus } from "react-icons/fa";
+import { FiUsers } from 'react-icons/fi'
+import { FaPlus } from "react-icons/fa";
 // import storeContext from '../../context/storeContext'
 // import { IoLogOutOutline } from "react-icons/io5";
 

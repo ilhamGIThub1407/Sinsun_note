@@ -60,12 +60,12 @@ const AddWriter = () => {
               <label className='text-md font-medium text-gray-600' htmlFor="category">Category</label>
               <select onChange={inputHandler} value={state.category} required name='category' id='category' className='px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10' >
                 <option value="">---select category---</option>
-                <option value="Education">Education</option>
-                <option value="Travel">Travel</option>
-                <option value="Health">Health</option>
-                <option value="International">International</option>
-                <option value="Sports">Sports</option>
-                <option value="Technology">Technology</option>
+                <option value="Korean Politics">Korean Politics</option>
+                <option value="International Relations">International Relations</option>
+                <option value="K-Culture & Entertainment">K-Culture & Entertainment</option>
+                <option value="Sports & Esports Korea">Sports & Esports Korea</option>
+                <option value="Technology & Innovation Korea">Technology & Innovation Korea</option>
+                <option value="Health & Society Korea">Health & Society Korea</option>
               </select>
             </div>
           </div>

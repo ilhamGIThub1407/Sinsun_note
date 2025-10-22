@@ -16,13 +16,13 @@ const Profile = () => {
                     <input className='hidden' type="file" id='img' />
                 </div>
                 <div className='text-[#404040] flex flex-col gap-y-1 justify-center items-start'>
-                    {/* <span>Name : Sheikh Farid</span>
-                    <span>Email : farid@gmail.com</span>
-                    <span>Category : Education</span> */}
+                    <span>Name : Kim Sunwoo</span>
+                    <span>Email : sunwoo@sinsunnote.kr</span>
+                    <span>Category : International Relations</span>
                 </div>
             </div>
             <div className='bg-white px-6 py-4 text-[#404040]'>
-                <h2 className='pb-3 text-center'>Cheange password</h2>
+                <h2 className='pb-3 text-center'>Change Password</h2>
 
                 <form>
                     <div className='grid grid-cols-1 gap-y-5 mb-3'>

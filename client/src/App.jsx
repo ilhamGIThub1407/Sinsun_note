@@ -6,6 +6,12 @@ import Login from './dashboard/pages/Login'
 import ProtectDashboard from './middleware/ProtectDashboard'
 import ProtectRole from './middleware/ProtectRole';
 import Unable from './dashboard/pages/Unable';
+import AddWriter from './dashboard/pages/AddWriter'
+import Writers from './dashboard/pages/Writers'
+import News from './dashboard/pages/News'
+import Profile from './dashboard/pages/Profile'
+import WriterIndex from './dashboard/pages/WriterIndex';
+import CreateNews from './dashboard/pages/CreateNews'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,8 +24,9 @@ function App() {
           <Route path='' element={<MainLayout/>}>
               <Route path='' element={store.userInfo?.role === 'admin' ? <Navigate to='/dashboard/admin'  /> : <Navigate to='/dashboard/unable-access' />} />
               <Route path='unable-access' element={<Unable/>} />
-              <Route path='news/*' element={<ProtectRole><News/></ProtectRole>} />
+              <Route path='news' element={<ProtectRole><News/></ProtectRole>} />
               <Route path='profile' element={<ProtectRole><Profile/></ProtectRole>} />
+
               <Route path='writers/*' element={<ProtectRole><Writers/></ProtectRole>} />
               <Route path='writer/add' element={<ProtectRole><AddWriter/></ProtectRole>} />
               <Route path='admin' element={<AdminIndex/>} />
