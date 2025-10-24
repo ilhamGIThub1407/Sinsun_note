@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MdCloudUpload } from "react-icons/md";
 import JoditEditor from 'jodit-react'
-import Galler from '../components/Galler';
+import Galler from '../components/Gallery';
 import { base_url } from '../../config/config'
 import axios from 'axios'
 import storeContext from '../../context/storeContext'
