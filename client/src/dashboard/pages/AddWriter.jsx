@@ -47,7 +47,7 @@ const AddWriter = () => {
     <div className='bg-white rounded-md'>
       <div className='flex justify-between p-4'>
         <h2 className='text-xl font-medium'>Add writers</h2>
-        <Link className='px-3 py-[6px] bg-purple-500 rounded-sm text-white hover:bg-purple-600' to='/dashboard/writers'>Writers</Link>
+        <Link className='px-3 py-[6px] bg-[#0047A0] rounded-sm text-white hover:bg-[#002F6C]' to='/dashboard/writers'>Writers</Link>
       </div>
       <div className='p-4'>
         <form onSubmit={submit}>
@@ -82,7 +82,7 @@ const AddWriter = () => {
             </div>
           </div>
           <div className='mt-4'>
-            <button disabled={loader} className='px-3 py-[6px] bg-purple-500 rounded-sm text-white hover:bg-purple-600' >{loader ? 'Loading...' : 'Add Writer'}</button>
+            <button disabled={loader} className='px-3 py-[6px] bg-[#0047A0] rounded-sm text-white hover:bg-[#002F6C]' >{loader ? 'Loading...' : 'Add Writer'}</button>
           </div>
         </form>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Faeye } from 'react-icons/fa'
+import { FaEye } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const AdminIndex = () => {

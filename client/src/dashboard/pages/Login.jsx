@@ -52,7 +52,7 @@ const Login = () => {
       <div className='w-[340px] text-slate-600 shadow-md'>
         <div className='bg-white h-full px-7 py-8 rounded-md'>
           <div className='w-full justify-center items-center flex'>
-            <img className='w-[200px]' src="https://news-portal-mern.onrender.com/assets/logo-00ebaab6.png" alt="logo" />
+            <img className='w-[200px]' src="wings_note.png" alt="wings note logo" />
           </div>
           <form onSubmit={submit} className='mt-8'>
             <div className='flex flex-col gap-y-2'>
@@ -66,7 +66,7 @@ const Login = () => {
               </div>
             </div>
             <div className='mt-4'>
-              <button disabled={loader} className='px-3 py-[6px] w-full bg-purple-500 rounded-sm text-white hover:bg-purple-600' >{loader ? "loading..." : 'Login'}</button>
+              <button disabled={loader} className='px-3 py-[6px] w-full bg-[#0047A0] rounded-sm text-white hover:bg-[#002F6C]' >{loader ? "loading..." : 'Login'}</button>
             </div>
           </form>
         </div>

@@ -40,7 +40,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className='mt-4'>
-                        <button className='px-3 py-[6px] bg-purple-500 rounded-sm text-white hover:bg-purple-600' >Change Password</button>
+                        <button className='px-3 py-[6px] bg-[#0047A0] rounded-sm text-white hover:bg-[#002F6C]' >Change Password</button>
                     </div>
                 </form>
             </div>

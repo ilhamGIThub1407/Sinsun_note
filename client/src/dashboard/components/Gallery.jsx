@@ -9,7 +9,7 @@ const Gallery = ({ setShow, images }) => {
 
     const copy_url = (url)=>{
         copy(url)
-        toast.success('copu success')
+        toast.success('copy success')
     }
     return (
         <div className='w-screen h-screen fixed left-0 top-0 z-[9999]'>

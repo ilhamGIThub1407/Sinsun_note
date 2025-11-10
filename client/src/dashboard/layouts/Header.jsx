@@ -14,8 +14,8 @@ const Header = () => {
         <div className='mr-4'>
           <div className='flex gap-x-2'>
             <div className='flex flex-col justify-center items-end'>
-              <span>Ilham</span>
-              <span>Admin</span>
+              <span>{store.userInfo?.name}</span>
+              <span>{store.userInfo?.role}</span>
             </div>
             <img className='w-10 h-10 rounded-full' src={profile} alt="" />
           </div>

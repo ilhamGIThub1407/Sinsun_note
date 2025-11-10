@@ -1,21 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AiFillDashboard, AiOutlinePlus } from 'react-icons/ai'
 import { ImProfile } from 'react-icons/im'
 import { BiNews } from 'react-icons/bi'
 import { FiUsers } from 'react-icons/fi'
 import { FaPlus } from "react-icons/fa";
-// import storeContext from '../../context/storeContext'
-// import { IoLogOutOutline } from "react-icons/io5";
+import storeContext from '../../context/storeContext'
+import { IoLogOutOutline } from "react-icons/io5";
 
 const Sidebar = () => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
 
-    // const { store, dispatch } = useContext(storeContext)
+    const { store, dispatch } = useContext(storeContext)
 
     const logout = () => {
-        localStorage.removeItem('mewsToken')
+        localStorage.removeItem('newsToken')
         dispatch({ type: 'logout', payload: '' })
         navigate('/login')
     }
@@ -27,7 +27,7 @@ const Sidebar = () => {
                     className="flex flex-col items-center justify-center text-center select-none group mt-2"
                     >
                     <img 
-                        src="/sinsun_note_logo.jpg" 
+                        src="/wings_note.png" 
                         alt="Logo" 
                         className="w-20 h-20 object-contain transition-transform duration-300 group-hover:scale-110" 
                     />

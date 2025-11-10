@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MdCloudUpload } from "react-icons/md";
 import JoditEditor from 'jodit-react'
-import Galler from '../components/Gallery';
+import Gallery from '../components/Gallery';
 import { base_url } from '../../config/config'
 import axios from 'axios'
 import storeContext from '../../context/storeContext'
@@ -156,7 +156,7 @@ const CreateNews = () => {
             </div>
             <input onChange={imageHandler} type="file" multiple id='images' className='hidden' />
             {
-                show && <Galler setShow={setShow} images={images} />
+                show && <Gallery setShow={setShow} images={images} />
             }
         </div>
     )

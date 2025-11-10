@@ -61,7 +61,7 @@ const NewContent = () => {
 
     }
 
-    const serach_news = (e) => {
+    const search_news = (e) => {
 
         const tempNews = all_news.filter(n => n.title.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1)
         setNews(tempNews)
@@ -110,7 +110,7 @@ const NewContent = () => {
                     <option value="active">Active</option>
                     <option value="deactive">Deactive</option>
                 </select>
-                <input onChange={serach_news} type="text" placeholder='search news' className='px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10' />
+                <input onChange={search_news} type="text" placeholder='search news' className='px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10' />
             </div>
             <div className='relative overflow-x-auto p-4'>
                 <table className='w-full text-sm text-left text-slate-600'>
