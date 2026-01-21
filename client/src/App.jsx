@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import MainLayout from './dashboard/layouts/MainLayout'
 import AdminIndex from './dashboard/pages/AdminIndex'
@@ -16,7 +16,8 @@ import storeContext from './context/storeContext'
 import Edit_news from './dashboard/pages/Edit_news'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+const { store } = useContext(storeContext)
 
   return (
     <BrowserRouter>
@@ -24,7 +25,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<ProtectDashboard />} >
           <Route path='' element={<MainLayout/>}>
-              
+              <Route path='' element={store.userInfo?.role === 'admin' ? <Navigate to='/dashboard/admin' /> : <Navigate to='/dashboard/writer' />} />
               <Route path='unable-access' element={<Unable/>} />
               <Route path='news' element={<News/>} />
               <Route path='profile' element={<Profile/>} />

@@ -24,7 +24,6 @@ router.get('/api/latest/news', newsController.get_latest_news)
 router.get('/api/images/news', newsController.get_images)
 router.get('/api/recent/news', newsController.get_recent_news)
 
-
 router.get('/api/news/details/:slug', newsController.get_news)
 router.get('/api/category/all', newsController.get_categories)
 

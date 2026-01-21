@@ -1,0 +1,11 @@
+{
+  "_id": {
+    "$oid": "69021d5edb821710c0cc2f5e"
+  },
+  "name": "Ilham Maslaw",
+  "email": "ilham_sinsun@gmail.com",
+  "password": "$2a$09$jeh0SdfQpajNZTzESGFCl.55z6qtTD2J6k34W8SgXkzqsFKPIGlt2",
+  "role": "admin",
+  "category": "all",
+  "image": ""
+}
