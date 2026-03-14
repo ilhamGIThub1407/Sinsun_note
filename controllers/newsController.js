@@ -90,6 +90,46 @@ class newsController {
         }
     }
 
+    delete_news = async (req, res) => {
+        const { id, role } = req.userInfo
+        const { news_id } = req.params
+
+        cloudinary.config({
+            cloud_name: process.env.cloud_name,
+            api_key: process.env.api_key,
+            api_secret: process.env.api_secret,
+            secure: true
+        })
+
+        try {
+            const news = await newsModel.findById(news_id)
+            
+            if (!news) {
+                return res.status(404).json({ message: 'News not found' })
+            }
+
+            // Check if user is the writer of this news or is admin
+            if (news.writerId.toString() !== id && role !== 'admin') {
+                return res.status(403).json({ message: 'You cannot delete this news' })
+            }
+
+            // Delete image from cloudinary
+            if (news.image) {
+                const splitImage = news.image.split('/')
+                const imageName = splitImage[splitImage.length - 1].split('.')[0]
+                await cloudinary.uploader.destroy(imageName)
+            }
+
+            // Delete news from database
+            await newsModel.findByIdAndDelete(news_id)
+            
+            return res.status(200).json({ message: 'News deleted successfully' })
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({ message: 'Internal server error' })
+        }
+    }
+
     get_images = async (req, res) => {
         const { id } = req.userInfo
 

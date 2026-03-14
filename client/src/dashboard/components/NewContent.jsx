@@ -101,6 +101,33 @@ const NewContent = () => {
         }
     }
 
+    const delete_news = async (news_id) => {
+        try {
+            set_res({
+                id: news_id,
+                loader: true
+            })
+            const { data } = await axios.delete(`${base_url}/api/news/delete/${news_id}`, {
+                headers: {
+                    'Authorization': `Bearer ${store.token}`
+                }
+            })
+            set_res({
+                id: '',
+                loader: false
+            })
+            toast.success(data.message)
+            get_news()
+        } catch (error) {
+            set_res({
+                id: '',
+                loader: false
+            })
+            console.log(error)
+            toast.error(error.response?.data?.message || 'Failed to delete news')
+        }
+    }
+
     return (
         <div>
             <div className='px-4 py-3 flex gap-x-3'>
@@ -164,9 +191,9 @@ const NewContent = () => {
                                     <div className='flex justify-start items-center gap-x-4 text-white'>
                                         <Link className='p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50'><FaEye /></Link>
                                         {
-                                            store?.userInfo?.role === 'writer' && <>
+                                            (store?.userInfo?.role === 'writer' || store?.userInfo?.role === 'admin') && <>
                                                 <Link to={`/dashboard/news/edit/${n._id}`} className='p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50'><FaEdit /></Link>
-                                                <div className='p-[6px] bg-red-500 rounded hover:shadow-lg hover:shadow-red-500/50'><FaTrash /></div>
+                                                <button onClick={() => delete_news(n._id)} disabled={res.loader && res.id === n._id} className='p-[6px] bg-red-500 rounded hover:shadow-lg hover:shadow-red-500/50 disabled:opacity-50'><FaTrash /></button>
                                             </>
                                         }
                                     </div>

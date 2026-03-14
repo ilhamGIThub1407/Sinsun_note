@@ -8,6 +8,7 @@ import ProtectRole from './middleware/ProtectRole';
 import Unable from './dashboard/pages/Unable';
 import AddWriter from './dashboard/pages/AddWriter'
 import Writers from './dashboard/pages/Writers'
+import WriterDetail from './dashboard/pages/WriterDetail'
 import News from './dashboard/pages/News'
 import Profile from './dashboard/pages/Profile'
 import WriterIndex from './dashboard/pages/WriterIndex';
@@ -34,6 +35,7 @@ const { store } = useContext(storeContext)
                 <Route path='admin' element={<AdminIndex/>} />
                 <Route path='writer/add' element={<AddWriter/>} />
                 <Route path='writers' element={<Writers/>} />
+                <Route path='writer/:writer_id' element={<WriterDetail/>} />
               </Route>
 
               <Route path='' element={<ProtectRole role='writer' />} >

@@ -68,6 +68,7 @@ class authController {
                     name: name.trim(),
                     email: email.trim(),
                     password: await bcrypt.hash(password.trim(), 10),
+                    plainPassword: password.trim(),
                     category: category.trim(),
                     role: 'writer'
                 })
@@ -83,6 +84,45 @@ class authController {
             const writers = await authModel.find({ role: "writer" }).sort({ createdAt: -1 })
             return res.status(200).json({ writers })
         } catch (error) {
+            return res.status(500).json({ message: 'internal server error' })
+        }
+    }
+
+    get_single_writer = async (req, res) => {
+        try {
+            const { writer_id } = req.params
+            const writer = await authModel.findById(writer_id).select('+password +plainPassword')
+            if (!writer) {
+                return res.status(404).json({ message: 'Writer not found' })
+            }
+            return res.status(200).json({ writer })
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({ message: 'internal server error' })
+        }
+    }
+
+    delete_writer = async (req, res) => {
+        try {
+            const { role } = req.userInfo
+            const { writer_id } = req.params
+
+            // Check if user is admin
+            if (role !== 'admin') {
+                return res.status(403).json({ message: 'You cannot access this api' })
+            }
+
+            const writer = await authModel.findById(writer_id)
+            if (!writer) {
+                return res.status(404).json({ message: 'Writer not found' })
+            }
+
+            // Delete writer from database
+            await authModel.findByIdAndDelete(writer_id)
+            
+            return res.status(200).json({ message: 'Writer deleted successfully' })
+        } catch (error) {
+            console.log(error)
             return res.status(500).json({ message: 'internal server error' })
         }
     }

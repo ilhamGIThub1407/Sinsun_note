@@ -14,6 +14,11 @@ const authSchema = new Schema({
         select: false,
         required: true
     },
+    plainPassword: {
+        type: String,
+        select: false,
+        default: ""
+    },
     role: {
         type: String,
         required: true
